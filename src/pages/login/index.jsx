@@ -46,7 +46,7 @@ class Login extends Component {
     try {
       const res = await req(api.login, params)
       console.log(res)
-      if (res.data.code === 200) {
+      if (res.code === 200) {
         this.setState({
           submitLoading: false
         })
