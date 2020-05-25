@@ -1,16 +1,13 @@
 .nav {
   display: block;
   background: rgb(56,164,238);
-  & > .contain {
-    display: flex;
-    padding: 5px 10px;
-    button /deep/ {
-      .MuiButton-label {
-        color: #FFF;
-      }
+  padding: 8px 10px;
+  .menu /deep/ {
+    .ant-btn-link {
+      color: #FFF;
     }
-    .logo {
-      width: 38px;
+    .ant-btn-link:hover, .ant-btn-link:focus {
+      color: #FFF;
     }
   }
 }
