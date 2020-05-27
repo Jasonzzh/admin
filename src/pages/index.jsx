@@ -15,7 +15,17 @@ class Index extends Component {
   }
 
   render() {
-    const { routes } = this.props
+    let { routes } = this.props
+      , elementRoute
+    if (routes) {
+      elementRoute = routes.map((item, index) => {
+        if (item.exact) {
+          return <Route exact key={ index } path={ item.path } component={ item.component } />
+        } else {
+          return <Route key={ index } path={ item.path } component={ item.component } />
+        }
+      })
+    }
     return (
       <div style={ style.contain }>
         <LeftMenu />
@@ -23,13 +33,7 @@ class Index extends Component {
           <Nav />
           <Router>
             <Switch>
-              {routes.map((item, index) => {
-                if (item.exact) {
-                  return <Route exact key={ index } path={ item.path } component={ item.component } />
-                } else {
-                  return <Route key={ index } path={ item.path } component={ item.component } />
-                }
-              })}
+              { elementRoute }
             </Switch>
           </Router>
         </div>

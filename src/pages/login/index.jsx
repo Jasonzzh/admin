@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Input, Checkbox, Button } from 'antd';
+import { Input, Checkbox, Button, Alert } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
 import { req } from '../../assets/js/req.js';
 import api from './api.js';
@@ -13,6 +13,8 @@ class Login extends Component {
       userName: '',
       password: '',
       submitLoading: false,
+      message: '',
+      type: 'error'
     }
   }
 
@@ -20,6 +22,7 @@ class Login extends Component {
     console.log(e)
   }
 
+  // 账号输入
   usnChange = (e) => {
     const { value } = e.target
     this.setState({
@@ -27,6 +30,7 @@ class Login extends Component {
     })
   }
 
+  // 密码输入
   pwdChange = (e) => {
     const { value } = e.target
     this.setState({
@@ -34,7 +38,9 @@ class Login extends Component {
     })
   }
 
+  // 登录
   login = async () => {
+    if (!this.isCheck()) return
     this.setState({
       submitLoading: true
     })
@@ -45,10 +51,19 @@ class Login extends Component {
       }
     try {
       const res = await req(api.login, params)
-      console.log(res)
       if (res.code === 200) {
         this.setState({
-          submitLoading: false
+          message: res.msg,
+          submitLoading: false,
+          type: 'success'
+        })
+        this.saveUser(res.data)
+        this.props.history.push('/index')
+      } else {
+        this.setState({
+          message: res.msg,
+          submitLoading: false,
+          type: 'error'
         })
       }
     } catch (err) {
@@ -56,14 +71,40 @@ class Login extends Component {
     }
   }
 
+  // 保存用户
+  saveUser = (data) => {
+    const blogUser = JSON.stringify(data)
+    sessionStorage.setItem('blogUser', blogUser)
+  }
+
+  // 用户名、密码校验
+  isCheck = () => {
+    const { userName, password } = this.state
+    if (!userName) {
+      this.setState({
+        message: '用户名不能为空！',
+        submitLoading: false,
+      })
+      return false
+    } else if (!password) {
+      this.setState({
+        message: '请输入密码',
+        submitLoading: false,
+      })
+      return false
+    }
+    return true
+  }
+
   render() {
     const { remember, login, usnChange, pwdChange } = this
-      , { userName, password, submitLoading } = this.state
+      , { userName, password, submitLoading, message, type } = this.state
     return (
       <div className="login">
         <div className="content">
           <img src={require('../../assets/img/login/pic.png')} alt="" className="pic"/>
           <div className="form">
+            <Alert message={ message } type={ type } showIcon  className={ !message ? 'hide' : ''}/>
             <Input placeholder="UserName" onChange={ usnChange } value={ userName } prefix={<UserOutlined />} />
             <Input.Password placeholder="Password" value={ password } onChange={ pwdChange } prefix={<LockOutlined />} />
             <Checkbox onChange={ remember }>Remember Me</Checkbox>

@@ -1,13 +1,23 @@
 .nav {
-  display: block;
+  display: flex;
   background: rgb(56,164,238);
-  padding: 8px 10px;
-  .menu /deep/ {
-    .ant-btn-link {
-      color: #FFF;
+  padding: 13px 10px;
+  justify-content: flex-end;
+  .head-menu {
+    display: flex;
+    color: #FFF;
+    align-items: center;
+    margin-right: 12px;
+    .go-back {
+      cursor: pointer;
     }
-    .ant-btn-link:hover, .ant-btn-link:focus {
-      color: #FFF;
+    .logout {
+      margin-left: 26px;
+      cursor: pointer;
+    }
+    .user {
+      margin-left: 30px;
+      cursor: pointer;
     }
   }
 }
