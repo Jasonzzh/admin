@@ -1,5 +1,5 @@
 const api = {
-  login: 'getIndex/login'
+    login: 'getIndex/login',
 }
 
-export default api;
+export default api

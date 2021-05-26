@@ -1,11 +1,9 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
 class UserManage extends Component {
-  render() {
-    return (
-      <div>user</div>
-    )
-  }
+    render() {
+        return <div>user</div>
+    }
 }
 
-export default UserManage;
+export default UserManage

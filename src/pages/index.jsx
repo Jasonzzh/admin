@@ -1,61 +1,72 @@
-import React, { Component } from 'react';
-import { HashRouter as Router, Switch, Route } from "react-router-dom";
-import Nav from '../component/nav';
-import LeftMenu from '../component/leftMenu';
+import React, { Component } from 'react'
+import { HashRouter as Router, Switch, Route } from 'react-router-dom'
+import Nav from '../component/nav'
+import LeftMenu from '../component/leftMenu'
 
 class Index extends Component {
-
-  constructor(props) {
-    super(props);
-    this.state = {}
-  }
-
-  componentWillMount() {
-    console.log(this.props.routes)
-  }
-
-  render() {
-    let { routes } = this.props
-      , elementRoute
-    if (routes) {
-      elementRoute = routes.map((item, index) => {
-        if (item.exact) {
-          return <Route exact key={ index } path={ item.path } component={ item.component } />
-        } else {
-          return <Route key={ index } path={ item.path } component={ item.component } />
-        }
-      })
+    constructor(props) {
+        super(props)
+        this.state = {}
     }
-    return (
-      <div style={ style.contain }>
-        <LeftMenu />
-        <div style={ style.content }>
-          <Nav />
-          <Router>
-            <Switch>
-              { elementRoute }
-            </Switch>
-          </Router>
-        </div>
-      </div>
-    )
-  }
+
+    componentWillMount() {
+        console.log(this.props.routes)
+    }
+
+    render() {
+        let { routes } = this.props,
+            elementRoute
+        if (routes) {
+            elementRoute = routes.map((item, index) => {
+                if (item.exact) {
+                    return (
+                        <Route
+                            exact
+                            key={index}
+                            path={item.path}
+                            component={item.component}
+                        />
+                    )
+                } else {
+                    return (
+                        <Route
+                            key={index}
+                            path={item.path}
+                            component={item.component}
+                        />
+                    )
+                }
+            })
+        }
+        return (
+            <div style={style.contain}>
+                <LeftMenu />
+                <div style={style.content}>
+                    <Nav />
+                    <Router>
+                        <Switch>{elementRoute}</Switch>
+                    </Router>
+                </div>
+            </div>
+        )
+    }
 }
 
 const style = {
-  contain: {
-    position: 'fixed',
-    width: '100%',
-    height: '100vh',
-    top: '0',
-    left: '0',
-    display: 'flex',
-    background: 'rgb(240,240,243)',
-  },
-  content: {
-    flex: '1',
-    transition: 'all 0.3s',
-  }
+    contain: {
+        position: 'fixed',
+        width: '100%',
+        height: '100vh',
+        top: '0',
+        left: '0',
+        display: 'flex',
+        background: 'rgb(240,240,243)',
+    },
+    content: {
+        flex: '1',
+        transition: 'all 0.3s',
+        overflow: 'hidden',
+    },
 }
 
-export default Index;
+export default Index

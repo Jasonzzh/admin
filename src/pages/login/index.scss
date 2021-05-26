@@ -1,96 +1,112 @@
 .login {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  height: 100vh;
-  background: url('../../assets/img/login/logoBg.jpg') no-repeat fixed top;
-  background-size: 100% 100%;
-  .content {
-    display: block;
-    margin-top: 100px;
-    .pic {
-      display: block;
-      width: 72px;
-      height: 72px;
-      border: 2px solid rgb(95, 130, 159);
-      border-radius: 50%;
-      overflow: hidden;
-      margin: 0 auto 30px;
-    }
-    .form {
-      width: 320px;
-      display: block;
-      background: rgba(0,0,0,0.03);
-      border-radius: 8px;
-      border: 1px solid rgba(255,255,255,0.2);
-      padding: 26px 26px 16px;
-      .ant-alert {
-        padding: 4px 30px;
-        background: rgba(255,255,255,0.1);
-        margin-bottom: 20px;
-        color: #FFF;
-        border-radius: 5px;
-        font-size: 12px;
-      }
-      .ant-alert-icon {
-        position: absolute;
-        top: 7px;
-        left: 11px;
-      }
-      .ant-input-affix-wrapper {
-        background: rgba(255,255,255,0.1);
-        border: 1px solid rgba(255,255,255,0.2);
-        border-radius: 5px;
-        color: rgb(245,245,245);
-        &:nth-child(2) {
-          margin-bottom: 20px;
-        }
-      }
-      .ant-input-affix-wrapper > input.ant-input {
-        background: none;
-        color: rgb(245,245,245);
-      }
-      input::placeholder {
-        color: rgb(245,245,245);
-      }
-      .ant-checkbox-wrapper {
-        color: rgb(245,245,245);
-        margin: 10px 0;
-        font-size: 12px;
-      }
-      .ant-checkbox-inner {
-        background: rgb(155,184,188);
-        height: 12px;
-        width: 12px;
-        border-radius: 2px;
-        border-color: transparent;
-      }
-      .ant-checkbox-checked .ant-checkbox-inner::after {
-        width: 6px;
-        height: 9px;
-        left: 12%;
-      }
-      .ant-input-password-icon {
-        color: rgba(255,255,255,0.45);
-        &:hover {
-          color: rgba(255,255,255,1);
-        }
-      }
-      .ant-btn-block {
-        border-radius: 5px;
-      }
-      .ant-btn-primary {
-        background: linear-gradient(rgb(134,230,239), rgb(11,215,250));
-        border: none;
-      }
-    }
-  }
+	display: flex;
+	justify-content: center;
+	width: 100%;
+	height: 100vh;
+	background: url('../../assets/img/login/logoBg.jpg') no-repeat fixed top;
+	background-size: 100% 100%;
+
+	.content {
+		display: block;
+		margin-top: 100px;
+
+		.pic {
+			display: block;
+			width: 72px;
+			height: 72px;
+			border: 2px solid rgb(95, 130, 159);
+			border-radius: 50%;
+			overflow: hidden;
+			margin: 0 auto 30px;
+		}
+
+		.form {
+			width: 320px;
+			display: block;
+			background: rgba(0, 0, 0, 0.03);
+			border-radius: 8px;
+			border: 1px solid rgba(255, 255, 255, 0.2);
+			padding: 26px 26px 16px;
+
+			.ant-alert {
+				padding: 4px 30px;
+				background: rgba(255, 255, 255, 0.1);
+				margin-bottom: 20px;
+				color: #FFF;
+				border-radius: 5px;
+				font-size: 12px;
+			}
+
+			.ant-alert-icon {
+				position: absolute;
+				top: 7px;
+				left: 11px;
+			}
+
+			.ant-input-affix-wrapper {
+				background: rgba(255, 255, 255, 0.1);
+				border: 1px solid rgba(255, 255, 255, 0.2);
+				border-radius: 5px;
+				color: rgb(245, 245, 245);
+
+				&:nth-child(2) {
+					margin-bottom: 20px;
+				}
+			}
+
+			.ant-input-affix-wrapper>input.ant-input {
+				background: none;
+				color: rgb(245, 245, 245);
+			}
+
+			input::placeholder {
+				color: rgb(245, 245, 245);
+			}
+
+			.ant-checkbox-wrapper {
+				color: rgb(245, 245, 245);
+				margin: 10px 0;
+				font-size: 12px;
+			}
+
+			.ant-checkbox-inner {
+				background: rgb(155, 184, 188);
+				height: 12px;
+				width: 12px;
+				border-radius: 2px;
+				border-color: transparent;
+			}
+
+			.ant-checkbox-checked .ant-checkbox-inner::after {
+				width: 6px;
+				height: 9px;
+				left: 12%;
+			}
+
+			.ant-input-password-icon {
+				color: rgba(255, 255, 255, 0.45);
+
+				&:hover {
+					color: rgba(255, 255, 255, 1);
+				}
+			}
+
+			.ant-btn-block {
+				border-radius: 5px;
+			}
+
+			.ant-btn-primary {
+				background: linear-gradient(rgb(134, 230, 239), rgb(11, 215, 250));
+				border: none;
+			}
+		}
+	}
 }
 
 .show {
-  display: block;
+	display: block;
 }
 
 .hide {
-  display: none;
+	display: none;
 }

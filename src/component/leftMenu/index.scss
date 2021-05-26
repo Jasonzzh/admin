@@ -1,19 +1,22 @@
 .left-menu {
-  background: #FFF;
-  .ant-menu-item {
-    padding-right: 30px !important;
-  }
-  .control {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 5px 0;
-    background: #38a4ee;
-    cursor: pointer;
-    margin-bottom: 4px;
-    img {
-      display: block;
-      width: 38px;
-    }
-  }
+	background: #FFF;
+
+	.ant-menu-item {
+		padding-right: 30px !important;
+	}
+
+	.control {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 5px 0;
+		background: #38a4ee;
+		cursor: pointer;
+		margin-bottom: 4px;
+
+		img {
+			display: block;
+			width: 38px;
+		}
+	}
 }
